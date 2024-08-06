@@ -16,6 +16,7 @@ board = [
     [0,0,0]]
 # 0:空白、1:◯、-1:✕
 
+number = 1
 
 def draw_board():
     for row_index,row in enumerate(board):
@@ -25,10 +26,6 @@ def draw_board():
             elif col == -1:
                 pygame.draw.line(screen,Blue,(col_index*200+20,row_index*200+20),(col_index*200+180,row_index*200+180),5)
                 pygame.draw.line(screen,Blue,(col_index*200+180,row_index*200+20),(col_index*200+20,row_index*200+180),5)
-
-
-
-
 
 
 run = True
@@ -45,21 +42,15 @@ while run:
     x = mx//200
     y = my//200
     
-
-
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             run = False
         if event.type == pygame.MOUSEBUTTONDOWN:
-            
-
+            if board[y][x] == 0:
+                board[y][x] = number
+                number *= -1
 
     pygame.display.update()
-
-
-
-
-
 
 pygame.quit()
 
