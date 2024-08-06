@@ -49,8 +49,23 @@ while run:
             if board[y][x] == 0:
                 board[y][x] = number
                 number *= -1
-
+    
+    for row_index,row in enumerate(board):
+        if sum(row) == 3:
+            print("〇の勝ち" )
+        if sum(row) == -3:
+            print("×の勝ち")
+        
+        if board[0][row_index] + board[1][row_index] + board[2][row_index] == 3:
+            print("〇の勝ち" )
+        if board[0][row_index] + board[1][row_index] + board[2][row_index] == -3:
+            print("×の勝ち" )
+        
+        if board[0][0] + board[1][1] + board[2][2] == 3 or board[2][0] + board[1][1] + board[0][2] == 3:
+            print("〇の勝ち" )
+        if board[0][0] + board[1][1] + board[2][2] == -3 or board[2][0] + board[1][1] + board[0][2] == -3:
+            print("×の勝ち" )
+            
     pygame.display.update()
 
 pygame.quit()
-
