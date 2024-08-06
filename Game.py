@@ -11,9 +11,9 @@ Green = (0,255,0)
 Blue = (0,0,255)
 
 board = [
-    [1,0,0],
-    [0,-1,0],
-    [0,0,1]]
+    [0,0,0],
+    [0,0,0],
+    [0,0,0]]
 # 0:空白、1:◯、-1:✕
 
 
@@ -35,18 +35,23 @@ run = True
 while run:
 
     screen.fill(White)
-    for x in range(1,3):
-        pygame.draw.line(screen,Black,(0,x*200),(600,x*200),5)
-        pygame.draw.line(screen,Black,(x*200,0),(x*200,600),5)
+    for i in range(1,3):
+        pygame.draw.line(screen,Black,(0,i*200),(600,i*200),5)
+        pygame.draw.line(screen,Black,(i*200,0),(i*200,600),5)
 
     draw_board()
+    
+    mx,my = pygame.mouse.get_pos()
+    x = mx//200
+    y = my//200
+    
 
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             run = False
-
-
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            
 
 
     pygame.display.update()
@@ -58,6 +63,3 @@ while run:
 
 pygame.quit()
 
-
-
-test
