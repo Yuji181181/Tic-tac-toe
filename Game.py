@@ -1,6 +1,5 @@
 import pygame
 pygame.init()
-
 screen = pygame.display.set_mode((600,600))
 pygame.display.set_caption("Tic-tac-toe")
 
@@ -17,6 +16,7 @@ board = [
 # 0:空白、1:◯、-1:✕
 
 number = 1
+
 
 def draw_board():
     for row_index,row in enumerate(board):
@@ -65,7 +65,7 @@ while run:
             print("〇の勝ち" )
         if board[0][0] + board[1][1] + board[2][2] == -3 or board[2][0] + board[1][1] + board[0][2] == -3:
             print("×の勝ち" )
-            
+    
     pygame.display.update()
 
 pygame.quit()
