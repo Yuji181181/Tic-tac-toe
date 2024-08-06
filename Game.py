@@ -10,21 +10,42 @@ Red = (255,0,0)
 Green = (0,255,0)
 Blue = (0,0,255)
 
+board = [
+    [1,0,0],
+    [0,-1,0],
+    [0,0,1]]
+# 0:空白、1:◯、-1:✕
+
+
+def draw_board():
+    for row_index,row in enumerate(board):
+        for col_index,col in enumerate(row):
+            if col == 1:
+                pygame.draw.circle(screen,Red,(col_index*200+100,row_index*200+100),80,5)
+            elif col == -1:
+                pygame.draw.line(screen,Blue,(col_index*200+20,row_index*200+20),(col_index*200+180,row_index*200+180),5)
+                pygame.draw.line(screen,Blue,(col_index*200+180,row_index*200+20),(col_index*200+20,row_index*200+180),5)
+
+
+
+
 
 
 run = True
 while run:
 
     screen.fill(White)
+    for x in range(1,3):
+        pygame.draw.line(screen,Black,(0,x*200),(600,x*200),5)
+        pygame.draw.line(screen,Black,(x*200,0),(x*200,600),5)
 
-
-
+    draw_board()
 
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             run = False
-            
+
 
 
 
